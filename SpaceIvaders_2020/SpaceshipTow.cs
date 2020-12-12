@@ -1,4 +1,4 @@
-﻿
+﻿//I have tow spaceship classes for easiyer spaceship manegment. When I upadate the code I can test if the code works on one spaceship. And if that code works i can apply it to the oather spaceship. If something goes wrong to a spaceship its easiyer to find it. I'ts easiyer to owersee the eache spaceship too.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +8,7 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace SpaceInvaders2020
-{
-    //I have tow spaceship classes for easiyer spaceship manegment. When I upadate the code I can test if the code works on one spaceship. And if that code works i can apply it to the oather spaceship. If something goes wrong to a spaceship its easiyer to find it. I'ts easiyer to owersee the eache spaceship too.
+{    
     class SpaceshipTow : PictureBox
     {
         public int FireCooldown { get; set; } = 1000;
