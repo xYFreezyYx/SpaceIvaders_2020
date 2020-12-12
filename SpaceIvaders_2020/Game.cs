@@ -12,8 +12,8 @@ namespace SpaceInvaders2020
 {
     public partial class Game : Form
     {
-        private SpaceshipOne spaceship = null;
-        private SpaceshipTow enemyship = null;
+        private SpaceshipOne spaceshipOne = null;
+        private SpaceshipTow spaceshipTow = null;
 
         public Game()
         {
@@ -26,27 +26,27 @@ namespace SpaceInvaders2020
         {
             this.KeyDown += Game_KeyDown;
             this.BackColor = Color.Black;
-            AddFirstPlayerToGame();
-            AddSecondPlayerToGame();
+            AddSpaceshipOneToGame();
+            AddSpaceshipTowToGame();
         }
 
-        private void AddFirstPlayerToGame()
+        private void AddSpaceshipOneToGame()
         {
-            spaceship = new SpaceshipOne(this);
-            spaceship.FireCooldown = 700;
-            this.Controls.Add(spaceship);
-            spaceship.Left = 293;
-            spaceship.Top = ClientRectangle.Height - spaceship.Height;
+            spaceshipOne = new SpaceshipOne(this);
+            spaceshipOne.FireCooldown = 700;
+            this.Controls.Add(spaceshipOne);
+            spaceshipOne.Left = 293;
+            spaceshipOne.Top = ClientRectangle.Height - spaceshipOne.Height;
             //Screen Middle is 353
         }
 
-        private void AddSecondPlayerToGame()
+        private void AddSpaceshipTowToGame()
         {
-            enemyship = new SpaceshipTow(this);
-            enemyship.FireCooldown = 700;
-            this.Controls.Add(enemyship);
-            enemyship.Left = 413;
-            enemyship.Top = ClientRectangle.Height - enemyship.Height;
+            spaceshipTow = new SpaceshipTow(this);
+            spaceshipTow.FireCooldown = 700;
+            this.Controls.Add(spaceshipTow);
+            spaceshipTow.Left = 413;
+            spaceshipTow.Top = ClientRectangle.Height - spaceshipTow.Height;
             //Screen Middle is 353
         }
 
@@ -54,36 +54,36 @@ namespace SpaceInvaders2020
         {
             if (e.KeyCode == Keys.W)
             {
-                spaceship.FirstSpaceshipFire();
+                spaceshipOne.Fire();
             }
             else if (e.KeyCode == Keys.A)
             {
-                spaceship.HorVelocity = -2;
+                spaceshipOne.HorVelocity = -2;
             }
             else if (e.KeyCode == Keys.D)
             {
-                spaceship.HorVelocity = 2;
+                spaceshipOne.HorVelocity = 2;
             }
             else if (e.KeyCode == Keys.S)
             {
-                spaceship.HorVelocity = 0;
+                spaceshipOne.HorVelocity = 0;
             }
 
             if (e.KeyCode == Keys.Up)
             {
-                enemyship.SecondSpaceshipFire();
+                spaceshipTow.Fire();
             }
             else if (e.KeyCode == Keys.Left)
             {
-                enemyship.HorVelocityE = -2;
+                spaceshipTow.HorVelocityE = -2;
             }
             else if (e.KeyCode == Keys.Right)
             {
-                enemyship.HorVelocityE = 2;
+                spaceshipTow.HorVelocityE = 2;
             }
             else if (e.KeyCode == Keys.Down)
             {
-                enemyship.HorVelocityE = 0;
+                spaceshipTow.HorVelocityE = 0;
             }
         }
 

@@ -22,18 +22,18 @@ namespace SpaceInvaders2020
         public SpaceshipOne(Game gameForm)
         {
             game = gameForm;
-            InitializeFirstspaceshi();
+            InitializeSpaceshiOne();
             InitializeTimerMove();
         }
 
-        private void InitializeFirstspaceshi()
+        private void InitializeSpaceshiOne()
         {
             this.Height = 100;
             this.Width = 60;
             this.BackColor = Color.SteelBlue;
         }
 
-        public void FirstSpaceshipFire()
+        public void Fire()
         {
             if (!canFire) return;
 
@@ -70,10 +70,10 @@ namespace SpaceInvaders2020
         private void TimerMove_Tick(object sender, EventArgs e)
         {
             this.Left += this.HorVelocity;
-            CheckFirstSpaceshipLocation();
+            CheckSpaceshipOneLocation();
         }
 
-        private void CheckFirstSpaceshipLocation()
+        private void CheckSpaceshipOneLocation()
         {
             if (this.Left <= 0)
             {
