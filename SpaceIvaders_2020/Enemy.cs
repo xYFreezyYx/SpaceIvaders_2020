@@ -12,7 +12,7 @@ namespace SpaceInvaders2020
     class Enemy : PictureBox
     {
 
-        public Enemy(Game gameForm)
+        public Enemy()
         {
 
         }
