@@ -14,9 +14,12 @@ namespace SpaceInvaders2020
     {
         private SpaceshipOne spaceshipOne = null;
         private SpaceshipTow spaceshipTow = null;
+        private List<Enemy> enemies = new List<Enemy>();
+        private Timer mainTimer = null;
 
         public Game()
         {
+            InitializeMainTimer();
             InitializeComponent();
             InitializeGame();
             StartText();
@@ -28,6 +31,7 @@ namespace SpaceInvaders2020
             this.BackColor = Color.Black;
             AddSpaceshipOneToGame();
             AddSpaceshipTowToGame();
+            AddEnemyToGame(4, 13);
         }
 
         private void AddSpaceshipOneToGame()
@@ -50,6 +54,23 @@ namespace SpaceInvaders2020
             //Screen Middle is 353
         }
 
+        private void AddEnemyToGame(int rows, int columns)
+        {
+            Enemy enemy = null;
+
+            for (int rowCounter = 0; rowCounter < rows; rowCounter++) //variable = rowCounter = 1,2,3 repite
+            {
+                for (int colCounter = 0; colCounter < columns; colCounter++) //variable = colCounter = 1,2,3,4,5 repite
+                {
+                    enemy = new Enemy();
+                    enemy.Left = 20 + 60 * colCounter; //Locatione from Left side in pixels
+                    enemy.Top = 20 + 60 * rowCounter; //Locatione from Top side in pixels
+                    this.Controls.Add(enemy);
+                    enemies.Add(enemy);
+                }
+            }
+        }
+
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W)
@@ -58,15 +79,15 @@ namespace SpaceInvaders2020
             }
             else if (e.KeyCode == Keys.A)
             {
-                spaceshipOne.HorVelocity = -2;
+                spaceshipOne.MoveLeft();
             }
             else if (e.KeyCode == Keys.D)
             {
-                spaceshipOne.HorVelocity = 2;
+                spaceshipOne.MoveRight();
             }
             else if (e.KeyCode == Keys.S)
             {
-                spaceshipOne.HorVelocity = 0;
+                spaceshipOne.MoveStop();
             }
 
             if (e.KeyCode == Keys.Up)
@@ -75,15 +96,55 @@ namespace SpaceInvaders2020
             }
             else if (e.KeyCode == Keys.Left)
             {
-                spaceshipTow.HorVelocityE = -2;
+                spaceshipTow.MoveLeft();
             }
             else if (e.KeyCode == Keys.Right)
             {
-                spaceshipTow.HorVelocityE = 2;
+                spaceshipTow.MoveRight();
             }
             else if (e.KeyCode == Keys.Down)
             {
-                spaceshipTow.HorVelocityE = 0;
+                spaceshipTow.MoveStop();
+            }
+        }
+
+        private void InitializeMainTimer()
+        {
+            mainTimer = new Timer();
+            mainTimer.Interval = 10;
+            mainTimer.Tick += MainTimer_Tick;
+            mainTimer.Start();
+        }
+
+        private void MainTimer_Tick(object sender, EventArgs e)
+        {
+            CheckBulletEnemyCollision();
+        }
+
+        private void CheckBulletEnemyCollision()
+        {
+            foreach (var bullet in spaceshipOne.bullets)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                    {
+                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                    }
+                }
+            }
+
+            foreach (var bullet in spaceshipTow.bullets)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                    {
+                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                    }
+                }
             }
         }
 

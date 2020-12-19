@@ -11,10 +11,16 @@ namespace SpaceInvaders2020
 {
     class Enemy : PictureBox
     {
-
         public Enemy()
         {
+            Initializeenemy();
+        }
 
+        private void Initializeenemy()
+        {
+            this.BackColor = Color.Red;
+            this.Width = 40;
+            this.Height = 40;
         }
     }
 }
