@@ -58,9 +58,9 @@ namespace SpaceInvaders2020
         {
             Enemy enemy = null;
 
-            for (int rowCounter = 0; rowCounter < rows; rowCounter++) //variable = rowCounter = 1,2,3 repite
+            for (int rowCounter = 0; rowCounter < rows; rowCounter++) //variable = rowCounter = 1,2,3,4 rows
             {
-                for (int colCounter = 0; colCounter < columns; colCounter++) //variable = colCounter = 1,2,3,4,5 repite
+                for (int colCounter = 0; colCounter < columns; colCounter++) //variable = colCounter = 1,2,3,4,5,6,7,8,9,10,11,12,13 colums
                 {
                     enemy = new Enemy();
                     enemy.Left = 20 + 60 * colCounter; //Locatione from Left side in pixels
@@ -87,7 +87,7 @@ namespace SpaceInvaders2020
             }
             else if (e.KeyCode == Keys.S)
             {
-                spaceshipOne.MoveStop();
+                spaceshipOne.StopMovement();
             }
 
             if (e.KeyCode == Keys.Up)
@@ -104,7 +104,7 @@ namespace SpaceInvaders2020
             }
             else if (e.KeyCode == Keys.Down)
             {
-                spaceshipTow.MoveStop();
+                spaceshipTow.StopMovement();
             }
         }
 

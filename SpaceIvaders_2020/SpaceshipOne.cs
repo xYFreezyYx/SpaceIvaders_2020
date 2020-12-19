@@ -100,7 +100,7 @@ namespace SpaceInvaders2020
             this.HorVelocity = -2;
         }
 
-        public void MoveStop()
+        public void StopMovement()
         {
             this.HorVelocity = 0;
         }
