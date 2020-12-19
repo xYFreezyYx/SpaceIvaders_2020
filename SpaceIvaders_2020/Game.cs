@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SpaceInvaders2020
 {
@@ -16,6 +17,8 @@ namespace SpaceInvaders2020
         private SpaceshipTow spaceshipTow = null;
         private List<Enemy> enemies = new List<Enemy>();
         private Timer mainTimer = null;
+        private int killCounter = 0;
+        private int lifeCounter = 0;
 
         public Game()
         {
@@ -118,7 +121,7 @@ namespace SpaceInvaders2020
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-            CheckBulletEnemyCollision();
+            CheckBulletEnemyCollision();        
         }
 
         private void CheckBulletEnemyCollision()
@@ -129,8 +132,11 @@ namespace SpaceInvaders2020
                 {
                     if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        PlaySimpleSound();
+                        killCounter++; //1 kill = 34 ponts (for now)
+                        KillCounterLable.Text = killCounter.ToString();
                     }
                 }
             }
@@ -141,21 +147,38 @@ namespace SpaceInvaders2020
                 {
                     if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable
+                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        PlaySimpleSound();
+                        killCounter++;
+                        KillCounterLable.Text = killCounter.ToString();
                     }
                 }
-            }
+            }            
+        }
+
+        private void LifeCounter()
+        {            
+            lifeCounter--;
+            LifeCounterLable.Text = lifeCounter.ToString();
         }
 
         private void StartText()
         {
+            PlaySimpleSound();
             MessageBox.Show(GlueText("To Start Press", "'OK'", " "));
+            PlaySimpleSound();
         }
 
         private string GlueText(string firstText, string secondText, string delimiter)
         {
             return firstText + delimiter + secondText;
+        }
+
+        private void PlaySimpleSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            simpleSound.Play();
         }
     }
 }
