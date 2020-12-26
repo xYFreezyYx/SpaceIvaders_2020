@@ -137,7 +137,7 @@ namespace SpaceInvaders2020
                         bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
                         bullet.Top = 0; //temporary solution 
                         PlaySimpleSound();
-                        killCounter++; //1 kill = 34 ponts (for now)
+                        killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
                         KillCounterLable.Text = killCounter.ToString();
                     }
                 }
@@ -154,14 +154,14 @@ namespace SpaceInvaders2020
                         bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
                         bullet.Top = 0; //temporary solution 
                         PlaySimpleSound();
-                        killCounter++; //1 kill = 34 ponts (for now)
+                        killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
                         KillCounterLable.Text = killCounter.ToString();
                     }
                 }
             }            
         }
 
-        private void LifeCounter()
+        private void LifeCounter() //Not in use
         {            
             lifeCounter--;
             LifeCounterLable.Text = lifeCounter.ToString();
