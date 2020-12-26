@@ -65,7 +65,7 @@ namespace SpaceInvaders2020
             {
                 for (int colCounter = 0; colCounter < columns; colCounter++) //variable = colCounter = 1,2,3,4,5,6,7,8,9,10,11,12,13 colums
                 {
-                    enemy = new Enemy();
+                    enemy = new Enemy(this);
                     enemy.Left = 20 + 60 * colCounter; //Locatione from Left side in pixels
                     enemy.Top = 20 + 60 * rowCounter; //Locatione from Top side in pixels
                     this.Controls.Add(enemy);
@@ -126,14 +126,16 @@ namespace SpaceInvaders2020
 
         private void CheckBulletEnemyCollision()
         {
-            foreach (var bullet in spaceshipOne.bullets)
+            foreach (var bullet in spaceshipOne.bullets) //Dispose dosn't delite it it removes it but it is still there invisable (for now)
             {
                 foreach (var enemy in enemies)
                 {
                     if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        enemy.Explode();
+                        this.Controls.Remove(bullet);
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
+                        bullet.Top = 0; //temporary solution 
                         PlaySimpleSound();
                         killCounter++; //1 kill = 34 ponts (for now)
                         KillCounterLable.Text = killCounter.ToString();
@@ -147,10 +149,12 @@ namespace SpaceInvaders2020
                 {
                     if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        enemy.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+                        enemy.Explode();
+                        this.Controls.Remove(bullet);
+                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
+                        bullet.Top = 0; //temporary solution 
                         PlaySimpleSound();
-                        killCounter++;
+                        killCounter++; //1 kill = 34 ponts (for now)
                         KillCounterLable.Text = killCounter.ToString();
                     }
                 }

@@ -21,7 +21,7 @@ namespace SpaceInvaders2020
         }
         public void InitializeBullet()
         {
-            this.Height = 30;
+            this.Height = 20;
             this.Width = 5;
             this.BackColor = Color.Yellow;
         }
