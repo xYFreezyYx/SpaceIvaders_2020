@@ -56,14 +56,14 @@ namespace SpaceInvaders2020
             tm.Start();
         }
                                                                              
-        private void changeImage(object sender, EventArgs e) 
+        private void changeImage(object sender, EventArgs e) //ths par is for changing the bacround for Game.cs [Designe] (for now disable cause of really big lag)
         {
             int index = DateTime.Now.Second % b1.Count;
             this.BackgroundImage = b1[index];
         }
 
 
-        private void AddSpaceshipOneToGame() //ths par is for changing the bacround for Game.cs [Designe] (for now disable cause of really big lag)
+        private void AddSpaceshipOneToGame()
         {
             spaceshipOne = new SpaceshipOne(this);
             spaceshipOne.FireCooldown = 700;
