@@ -22,10 +22,10 @@ namespace SpaceInvaders2020
 
         public Game()
         {
+            StartText();
             InitializeMainTimer();
             InitializeComponent();
             InitializeGame();
-            StartText();
         }
 
         private void InitializeGame()
@@ -44,7 +44,6 @@ namespace SpaceInvaders2020
             this.Controls.Add(spaceshipOne);
             spaceshipOne.Left = 293;
             spaceshipOne.Top = ClientRectangle.Height - spaceshipOne.Height;
-            //Screen Middle is 353
         }
 
         private void AddSpaceshipTowToGame()
@@ -54,7 +53,6 @@ namespace SpaceInvaders2020
             this.Controls.Add(spaceshipTow);
             spaceshipTow.Left = 413;
             spaceshipTow.Top = ClientRectangle.Height - spaceshipTow.Height;
-            //Screen Middle is 353
         }
 
         private void AddEnemyToGame(int rows, int columns)
@@ -138,6 +136,7 @@ namespace SpaceInvaders2020
                         bullet.Top = 0; //temporary solution 
                         PlaySimpleSound();
                         killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
+                        if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
                         KillCounterLable.Text = killCounter.ToString();
                     }
                 }
@@ -152,19 +151,21 @@ namespace SpaceInvaders2020
                         enemy.Explode();
                         this.Controls.Remove(bullet);
                         bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
-                        bullet.Top = 0; //temporary solution 
+                        bullet.Top = 0; //Temporary solution 
                         PlaySimpleSound();
                         killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
+                        if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
                         KillCounterLable.Text = killCounter.ToString();
                     }
                 }
             }            
         }
 
-        private void LifeCounter() //Not in use
-        {            
+        private void LifeCounter() //Not working (disabled it for now)
+        {
             lifeCounter--;
-            LifeCounterLable.Text = lifeCounter.ToString();
+            if (lifeCounter < 3) lifeCounter = 0;
+            LifeCounterLable.Text = lifeCounter.ToString();            
         }
 
         private void StartText()

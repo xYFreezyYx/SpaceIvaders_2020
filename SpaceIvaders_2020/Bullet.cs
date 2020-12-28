@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using SpaceIvaders_2020.Properties;
 
 namespace SpaceInvaders2020
 {
@@ -22,8 +23,12 @@ namespace SpaceInvaders2020
         public void InitializeBullet()
         {
             this.Height = 20;
-            this.Width = 5;
-            this.BackColor = Color.Yellow;
+            this.Width = 6;
+            this.BackColor = Color.Transparent;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            string pictureName = "spaceship_bullet";
+            this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 
         private void InitializeTimerMove()

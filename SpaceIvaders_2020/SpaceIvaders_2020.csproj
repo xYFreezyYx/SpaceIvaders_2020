@@ -185,5 +185,14 @@
   <ItemGroup>
     <None Include="Resources\rocket_on_003.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy spaceship c# .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy_spaceship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spaceship_bullet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

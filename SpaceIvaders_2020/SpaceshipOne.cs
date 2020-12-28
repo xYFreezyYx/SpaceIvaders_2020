@@ -128,9 +128,9 @@ namespace SpaceInvaders2020
 
         private void SpaceshipAnimateRotation()
         {
-            string imageName = "rocket_off_" + imageCount.ToString("000");
+            string imageName = "rocket_on_" + imageCount.ToString("000");
             this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
-            imageCount += 1;
+            imageCount++;
             if (imageCount > 3) imageCount = 0;
         }
     }

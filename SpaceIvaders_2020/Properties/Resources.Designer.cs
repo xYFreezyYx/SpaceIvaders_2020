@@ -63,6 +63,16 @@ namespace SpaceIvaders_2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemy_spaceship {
+            get {
+                object obj = ResourceManager.GetObject("enemy_spaceship", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exp000 {
             get {
                 object obj = ResourceManager.GetObject("exp000", resourceCulture);
@@ -366,6 +376,16 @@ namespace SpaceIvaders_2020.Properties {
         internal static System.Drawing.Bitmap rocket_on_003 {
             get {
                 object obj = ResourceManager.GetObject("rocket_on_003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceship_bullet {
+            get {
+                object obj = ResourceManager.GetObject("spaceship_bullet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

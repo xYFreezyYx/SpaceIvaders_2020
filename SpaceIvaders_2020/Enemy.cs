@@ -24,11 +24,14 @@ namespace SpaceInvaders2020
         }
 
         private void InitializeEnemy()
-        {
-            this.BackColor = Color.Red;
-            this.SizeMode = PictureBoxSizeMode.StretchImage;
+        {            
             this.Width = 40;
             this.Height = 40;
+            this.BackColor = Color.Transparent;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            string pictureName = "enemy_spaceship";
+            this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 
         public void Explode()
