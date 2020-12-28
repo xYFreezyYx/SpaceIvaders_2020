@@ -17,6 +17,7 @@ namespace SpaceInvaders2020
         private SpaceshipOne spaceshipOne = null;
         private SpaceshipTow spaceshipTow = null;
         private List<Enemy> enemies = new List<Enemy>();
+        List<Bitmap> b1;
         private Timer mainTimer = null;
         private int killCounter = 0;
         private int lifeCounter = 0;
@@ -35,16 +36,12 @@ namespace SpaceInvaders2020
             AddSpaceshipOneToGame();
             AddSpaceshipTowToGame();
             AddEnemyToGame(4, 13);
-            //this.BackgroundImage = Resources.Space_000;
-            //Timer tm = new Timer();
-            //tm.Interval = 50;
-            //tm.Tick += new EventHandler(changeImage);
-            //tm.Start();
+            TimerForImage();
         }
-                                                                             
-        private void changeImage(object sender, EventArgs e) //ths par is for changing the bacround for Game.cs [Designe] (for now disable cause of really big lag)
+
+        private void TimerForImage()
         {
-            List<Bitmap> b1 = new List<Bitmap>();
+            b1 = new List<Bitmap>();
             b1.Add(Resources.Space_000);
             b1.Add(Resources.Space_001);
             b1.Add(Resources.Space_002);
@@ -52,11 +49,21 @@ namespace SpaceInvaders2020
             b1.Add(Resources.Space_004);
             b1.Add(Resources.Space_005);
             b1.Add(Resources.Space_006);
+            this.BackgroundImage = Resources.Space_000;
+            Timer tm = new Timer();
+            tm.Interval = 50;
+            tm.Tick += new EventHandler(changeImage);
+            tm.Start();
+        }
+                                                                             
+        private void changeImage(object sender, EventArgs e) 
+        {
             int index = DateTime.Now.Second % b1.Count;
             this.BackgroundImage = b1[index];
         }
 
-        private void AddSpaceshipOneToGame()
+
+        private void AddSpaceshipOneToGame() //ths par is for changing the bacround for Game.cs [Designe] (for now disable cause of really big lag)
         {
             spaceshipOne = new SpaceshipOne(this);
             spaceshipOne.FireCooldown = 700;
