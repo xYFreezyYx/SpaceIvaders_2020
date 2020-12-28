@@ -194,5 +194,26 @@
   <ItemGroup>
     <None Include="Resources\spaceship_bullet.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_000.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_001.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_004.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_005.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Space_006.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

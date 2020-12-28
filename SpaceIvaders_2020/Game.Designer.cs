@@ -41,7 +41,7 @@
             this.Life.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Life.Location = new System.Drawing.Point(1045, 19);
             this.Life.Name = "Life";
-            this.Life.Size = new System.Drawing.Size(90, 54);
+            this.Life.Size = new System.Drawing.Size(87, 52);
             this.Life.TabIndex = 0;
             this.Life.Text = "Life";
             this.Life.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,7 +65,7 @@
             this.Kills.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Kills.Location = new System.Drawing.Point(1042, 133);
             this.Kills.Name = "Kills";
-            this.Kills.Size = new System.Drawing.Size(93, 54);
+            this.Kills.Size = new System.Drawing.Size(91, 52);
             this.Kills.TabIndex = 2;
             this.Kills.Text = "Kills";
             this.Kills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,7 +75,7 @@
             this.KillCounterLable.AutoSize = true;
             this.KillCounterLable.Font = new System.Drawing.Font("Papyrus", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KillCounterLable.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KillCounterLable.Location = new System.Drawing.Point(1064, 187);
+            this.KillCounterLable.Location = new System.Drawing.Point(1064, 195);
             this.KillCounterLable.Name = "KillCounterLable";
             this.KillCounterLable.Size = new System.Drawing.Size(48, 60);
             this.KillCounterLable.TabIndex = 3;
@@ -86,7 +86,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1162, 593);
             this.Controls.Add(this.KillCounterLable);
             this.Controls.Add(this.Kills);
