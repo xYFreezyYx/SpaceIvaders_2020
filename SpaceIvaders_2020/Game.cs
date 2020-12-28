@@ -132,9 +132,9 @@ namespace SpaceInvaders2020
                     {
                         enemy.Explode();
                         this.Controls.Remove(bullet);
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
+                        bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
                         bullet.Top = 0; //temporary solution 
-                        PlaySimpleSound();
+                        playHand();
                         killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
                         if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
                         KillCounterLable.Text = killCounter.ToString();
@@ -150,9 +150,9 @@ namespace SpaceInvaders2020
                     {
                         enemy.Explode();
                         this.Controls.Remove(bullet);
-                        bullet.Dispose(); //Dispose dosn't delite it it removes it but it is still there invisable (for now)                                               
+                        bullet.Dispose(); //Deletes the bullet on colisione with enemy                                              
                         bullet.Top = 0; //Temporary solution 
-                        PlaySimpleSound();
+                        playHand();
                         killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
                         if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
                         KillCounterLable.Text = killCounter.ToString();
@@ -161,11 +161,12 @@ namespace SpaceInvaders2020
             }            
         }
 
-        private void LifeCounter() //Not working (disabled it for now)
+        private void LifeCounter() //Not working (disabled it for now) (this is for when I make so enemy shoot at rondam at the ship from a rondom enemy)
         {
             lifeCounter--;
             if (lifeCounter < 3) lifeCounter = 0;
-            LifeCounterLable.Text = lifeCounter.ToString();            
+            LifeCounterLable.Text = lifeCounter.ToString();
+            playExclamation();
         }
 
         private void StartText()
@@ -180,10 +181,22 @@ namespace SpaceInvaders2020
             return firstText + delimiter + secondText;
         }
 
-        private void PlaySimpleSound()
+        private void PlaySimpleSound() //this is for StartText()
         {
             SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             simpleSound.Play();
         }
+
+        private void playHand() //This is for CheckBulletEnemyCollision()
+        {
+            SystemSounds.Hand.Play();
+        }
+
+        private void playExclamation() //This is for LifeCounter() (when I make it)
+        {
+            SystemSounds.Exclamation.Play();
+        }
+
+
     }
 }
