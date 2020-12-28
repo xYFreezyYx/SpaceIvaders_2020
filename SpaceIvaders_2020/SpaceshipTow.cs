@@ -94,6 +94,15 @@ namespace SpaceInvaders2020
             {
                 this.HorVelocityE = -this.HorVelocityE;
             }
+
+            if (this.Right <= 0)
+            {
+                this.HorVelocityE = -this.HorVelocityE;
+            }
+            else if (this.Right + this.Width >= game.ClientRectangle.Width)
+            {
+                this.HorVelocityE = -this.HorVelocityE;
+            }
         }
 
         public void MoveRight()
