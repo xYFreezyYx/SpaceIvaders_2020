@@ -27,7 +27,7 @@ namespace SpaceInvaders2020
             this.BackColor = Color.Transparent;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string pictureName = "spaceship_bullet";
+            string pictureName = "Bullet";
             this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 

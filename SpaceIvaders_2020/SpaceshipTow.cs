@@ -13,7 +13,7 @@ namespace SpaceInvaders2020
     class SpaceshipTow : PictureBox
     {
         public int FireCooldown { get; set; } = 1000;
-        public int HorVelocityE { get; set; } = 0;
+        public int HorVelocity { get; set; } = 0;
 
         public List<Bullet> bullets = new List<Bullet>();
 
@@ -34,12 +34,13 @@ namespace SpaceInvaders2020
 
         private void InitializeSpaceshipTow()
         {
+            this.Tag = "Player";
             this.Height = 100;
             this.Width = 60;
             this.BackColor = Color.Transparent;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string pictureName = "rocket_on_000";
+            string pictureName = "rocket_off_000";
             this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 
@@ -80,7 +81,7 @@ namespace SpaceInvaders2020
 
         private void TimerMove_Tick(object sender, EventArgs e)
         {
-            this.Left += this.HorVelocityE;
+            this.Left += this.HorVelocity;
             CheckSpaceshipTowLocation();
         }
 
@@ -88,37 +89,37 @@ namespace SpaceInvaders2020
         {
             if (this.Left <= 0)
             {
-                this.HorVelocityE = -this.HorVelocityE;
+                this.HorVelocity = -this.HorVelocity;
             }
             else if (this.Left + this.Width >= game.ClientRectangle.Width)
             {
-                this.HorVelocityE = -this.HorVelocityE;
+                this.HorVelocity = -this.HorVelocity;
             }
 
             if (this.Right <= 0)
             {
-                this.HorVelocityE = -this.HorVelocityE;
+                this.HorVelocity = -this.HorVelocity;
             }
             else if (this.Right + this.Width >= game.ClientRectangle.Width)
             {
-                this.HorVelocityE = -this.HorVelocityE;
+                this.HorVelocity = -this.HorVelocity;
             }
         }
 
         public void MoveRight()
         {
-            this.HorVelocityE = 2;
+            this.HorVelocity = 2;
         }
 
         public void MoveLeft()
         {
 
-            this.HorVelocityE = -2;
+            this.HorVelocity = -2;
         }
 
         public void StopMovement()
         {
-            this.HorVelocityE = 0;
+            this.HorVelocity = 0;
         }
 
         private void InitializeTimerAnimate()
@@ -136,10 +137,20 @@ namespace SpaceInvaders2020
 
         private void SpaceshipAnimateRotation()
         {
-            string imageName = "rocket_on_" + imageCount.ToString("000");
-            this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
-            imageCount++;
-            if (imageCount > 3) imageCount = 0;
+            if (HorVelocity == 2 || HorVelocity == -2)
+            {
+                string imageName = "rocket_on_" + imageCount.ToString("000");
+                this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
+                imageCount++;
+                if (imageCount > 3) imageCount = 0;
+            }
+            else
+            {
+                string imageName = "rocket_off_" + imageCount.ToString("000");
+                this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
+                imageCount++;
+                if (imageCount > 3) imageCount = 0;
+            }
         }
     }
 }

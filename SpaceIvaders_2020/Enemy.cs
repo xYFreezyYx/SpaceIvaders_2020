@@ -24,7 +24,8 @@ namespace SpaceInvaders2020
         }
 
         private void InitializeEnemy()
-        {            
+        {
+            this.Tag = "Enemy";
             this.Width = 40;
             this.Height = 40;
             this.BackColor = Color.Transparent;
@@ -37,7 +38,7 @@ namespace SpaceInvaders2020
         public void Explode()
         {
             this.BackColor = Color.Transparent;
-            InitializeTimerAnimateExpolosion();
+                InitializeTimerAnimateExpolosion();  
         }
 
         private void InitializeTimerAnimateExpolosion()

@@ -35,12 +35,13 @@ namespace SpaceInvaders2020
 
         private void InitializeSpaceshiOne()
         {
+            this.Tag = "Player";
             this.Height = 100;
             this.Width = 60;
             this.BackColor = Color.Transparent;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string pictureName = "rocket_on_000";
+            string pictureName = "rocket_off_000";
             this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 
@@ -126,21 +127,31 @@ namespace SpaceInvaders2020
         {
             timerAnimate = new Timer();
             timerAnimate.Interval = 80;
-            timerAnimate.Tick += TimerAnimate_Tick;
+            timerAnimate.Tick += TimerAnimate_Tick;            
             timerAnimate.Start();
         }
 
         private void TimerAnimate_Tick(object sender, EventArgs e)
         {
-            SpaceshipAnimateRotation();
+            SpaceshipAnimateRotatione();            
         }
 
-        private void SpaceshipAnimateRotation()
+        private void SpaceshipAnimateRotatione()
         {
-            string imageName = "rocket_on_" + imageCount.ToString("000");
-            this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
-            imageCount++;
-            if (imageCount > 3) imageCount = 0;
+            if (HorVelocity == 2 || HorVelocity == -2)
+            {
+                string imageName = "rocket_on_" + imageCount.ToString("000");
+                this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
+                imageCount++;
+                if (imageCount > 3) imageCount = 0;
+            }
+            else
+            {
+                string imageName = "rocket_off_" + imageCount.ToString("000");
+                this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
+                imageCount++;
+                if (imageCount > 3) imageCount = 0;
+            }
         }
     }
 }

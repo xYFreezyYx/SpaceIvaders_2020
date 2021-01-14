@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Sonya-Swarm-Space-Shuttle.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,6 +55,7 @@
     <Compile Include="Enemy.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="game1.cs" />
     <Compile Include="SpaceshipOne.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -214,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Space_006.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sonya-Swarm-Space-Shuttle.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

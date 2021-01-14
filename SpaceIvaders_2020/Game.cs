@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Media;
+using System.Windows.Forms;
 using SpaceIvaders_2020.Properties;
 
 namespace SpaceInvaders2020
@@ -17,7 +12,8 @@ namespace SpaceInvaders2020
         private SpaceshipOne spaceshipOne = null;
         private SpaceshipTow spaceshipTow = null;
         private List<Enemy> enemies = new List<Enemy>();
-        List<Bitmap> b1;
+        Label kills = new Label();
+        Label life = new Label();
         private Timer mainTimer = null;
         private int killCounter = 0;
         private int lifeCounter = 0;
@@ -27,15 +23,21 @@ namespace SpaceInvaders2020
             StartText();
             InitializeMainTimer();
             InitializeComponent();
-            InitializeGame();            
+            InitializeGame();
         }
 
         private void InitializeGame()
-        {            
+        {
+            this.Width = 700;
+            this.Height = 500;
             this.KeyDown += Game_KeyDown;
             this.BackColor = Color.Black;
             AddSpaceshipOneToGame();
             AddSpaceshipTowToGame();
+            LifeLable();
+            KillCounterLable();
+            LifeCounterLable();
+            KillLable();
             AddEnemyToGame(4, 13);
         }
 
@@ -45,7 +47,7 @@ namespace SpaceInvaders2020
             spaceshipOne.FireCooldown = 700;
             this.Controls.Add(spaceshipOne);
             spaceshipOne.Left = 293;
-            spaceshipOne.Top = ClientRectangle.Height - spaceshipOne.Height;
+            spaceshipOne.Top = ClientRectangle.Height - spaceshipOne.Height; 
         }
 
         private void AddSpaceshipTowToGame()
@@ -61,15 +63,15 @@ namespace SpaceInvaders2020
         {
             Enemy enemy = null;
 
-            for (int rowCounter = 0; rowCounter < rows; rowCounter++) //variable = rowCounter = 1,2,3,4 rows
+            for (int rowCounter = 0; rowCounter < rows; rowCounter++)
             {
-                for (int colCounter = 0; colCounter < columns; colCounter++) //variable = colCounter = 1,2,3,4,5,6,7,8,9,10,11,12,13 colums
+                for (int colCounter = 0; colCounter < columns; colCounter++)
                 {
                     enemy = new Enemy(this);
-                    enemy.Left = 20 + 60 * colCounter; //Locatione from Left side in pixels
-                    enemy.Top = 20 + 60 * rowCounter; //Locatione from Top side in pixels
+                    enemy.Left = 20 + 60 * colCounter;
+                    enemy.Top = 20 + 60 * rowCounter;
                     this.Controls.Add(enemy);
-                    enemies.Add(enemy);
+                    enemies.Add(enemy);                    
                 }
             }
         }
@@ -121,77 +123,54 @@ namespace SpaceInvaders2020
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-            CheckBulletEnemyCollision();        
+            CheckBulletEnemyCollision();
         }
 
         private void CheckBulletEnemyCollision()
         {
-            foreach (var bullet in spaceshipOne.bullets) //Dispose dosn't delite it it removes it but it is still there invisable (for now)
+            foreach (var bullet in spaceshipOne.bullets)
             {
-                foreach (var enemy in enemies)
+                foreach (Control enemy in this.Controls)
                 {
-                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                    if (enemy is PictureBox && (string)enemy.Tag == "Enemy")
                     {
-                        enemy.Explode();
-                        this.Controls.Remove(bullet);
-                        bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
-                        bullet.Top = 0; //temporary solution 
-                        playHand();
-                        killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
-                        if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
-                        KillCounterLable.Text = killCounter.ToString();
+                        if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                        {
+                            enemy.Dispose();
+                            this.Controls.Remove(bullet);
+                            bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
+                            bullet.Top = 0; //temporary solution 
+                            playHand();
+                            KillCounter();
+                        }
                     }
                 }
             }
 
             foreach (var bullet in spaceshipTow.bullets)
             {
-                foreach (var enemy in enemies)
+                foreach (Control enemy in this.Controls)
                 {
-                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                    if (enemy is PictureBox && (string)enemy.Tag == "Enemy")
                     {
-                        enemy.Explode();
-                        this.Controls.Remove(bullet);
-                        bullet.Dispose(); //Deletes the bullet on colisione with enemy                                              
-                        bullet.Top = 0; //Temporary solution 
-                        playHand();
-                        killCounter++; //1. row counts 1 kill but after 1. row its 1 kill = 34 ponts (for now)
-                        if (killCounter > 52) killCounter = 52; //Temporary so it just goes intill max kills
-                        KillCounterLable.Text = killCounter.ToString();
+                        if (bullet.Bounds.IntersectsWith(enemy.Bounds))
+                        {
+                            enemy.Dispose();
+                            this.Controls.Remove(bullet);
+                            bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
+                            bullet.Top = 0; //temporary solution 
+                            playHand();
+                            KillCounter();
+                        }
                     }
                 }
-            }            
+            }
         }
 
-        private void LifeCounter() //Not working (disabled it for now) (this is for when I make so enemy shoot at rondam at the ship from a rondom enemy)
+        private void KillCounter()
         {
-            lifeCounter--;
-            if (lifeCounter < 3) lifeCounter = 0;
-            LifeCounterLable.Text = lifeCounter.ToString();
-            playExclamation();
-        }
-
-        private void TimerForImage() //Disabled for now cause of lag
-        {
-            b1 = new List<Bitmap>();
-            b1.Add(Resources.Space_000);
-            b1.Add(Resources.Space_001);
-            b1.Add(Resources.Space_002);
-            b1.Add(Resources.Space_003);
-            b1.Add(Resources.Space_004);
-            b1.Add(Resources.Space_005);
-            b1.Add(Resources.Space_006);
-            this.BackgroundImage = Resources.Space_000;
-            Timer tm = new Timer();
-            tm.Interval = 50;
-            tm.Tick += new EventHandler(changeImage);
-            tm.Start();
-        }
-
-        private void changeImage(object sender, EventArgs e) //Disabled for now cause of lag
-        {
-            int index = DateTime.Now.Second % b1.Count;
-            this.BackgroundImage = b1[index];
+            killCounter++;
+            kills.Text = killCounter.ToString();
         }
 
         private void StartText()
@@ -220,6 +199,76 @@ namespace SpaceInvaders2020
         private void playExclamation() //This is for LifeCounter() (when I make it)
         {
             SystemSounds.Exclamation.Play();
+        }
+
+        private void LifeLable()
+        {
+            Label Life = null;
+            Life = new Label();
+            Life.Text = "Life";
+            Life.BackColor = Color.Black;
+            Life.ForeColor = Color.White;
+            Life.BorderStyle = BorderStyle.None;
+            Life.TextAlign = ContentAlignment.MiddleCenter;
+            Life.Font = new Font("Papyrus", 20);
+            Life.Width = 85;
+            Life.Height = 50;
+            Life.Location = new Point(775, 20);
+            this.Controls.Add(Life);
+        }
+
+        private void LifeCounterLable()
+        {
+            life = new Label();
+            life.Text = "3";
+            life.BackColor = Color.Black;
+            life.ForeColor = Color.White;
+            life.BorderStyle = BorderStyle.None;
+            life.TextAlign = ContentAlignment.MiddleCenter;
+            life.Font = new Font("Papyrus", 30);
+            life.Width = 85;
+            life.Height = 50;
+            life.Location = new Point(775, 60);
+            this.Controls.Add(life);
+        }
+
+        private void LifeCounter() //Not working (disabled it for now) (this is for when I make so enemy shoot at rondam at the ship from a rondom enemy)
+        {
+            lifeCounter--;
+            if (lifeCounter < 3) lifeCounter = 0;
+            life.Text = lifeCounter.ToString();
+            playExclamation();
+        }
+
+        private void KillLable()
+        {
+            Label Kills = null;
+            Kills = new Label();
+            Kills.Text = "Kills";
+            Kills.BackColor = Color.Black;
+            Kills.ForeColor = Color.White;
+            Kills.BorderStyle = BorderStyle.None;
+            Kills.TextAlign = ContentAlignment.MiddleCenter;
+            Kills.Font = new Font("Papyrus", 20);
+            Kills.Width = 85;
+            Kills.Height = 50;
+            Kills.Location = new Point(775, 115);
+            this.Controls.Add(Kills);
+        }
+
+        private void KillCounterLable()
+        {            
+            kills = new Label();
+            kills.Text = "0";
+            kills.BackColor = Color.Black;
+            kills.ForeColor = Color.White;
+            kills.BorderStyle = BorderStyle.None;
+            kills.TextAlign = ContentAlignment.MiddleCenter;
+            kills.Font = new Font("Papyrus", 30);
+            kills.Width = 85;
+            kills.Height = 50;
+            kills.Location = new Point(775, 155);
+            this.Controls.Add(kills);
         }
     }
 }
