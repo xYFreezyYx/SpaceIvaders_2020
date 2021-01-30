@@ -17,6 +17,7 @@ namespace SpaceInvaders2020
         private Timer mainTimer = null;
         private int killCounter = 0;
         private int lifeCounter = 0;
+        BackRound backRound = null;
 
         public Game()
         {
@@ -39,6 +40,13 @@ namespace SpaceInvaders2020
             LifeCounterLable();
             KillLable();
             AddEnemyToGame(4, 13);
+            AddBacRound();
+        }
+
+        private void AddBacRound()
+        {
+            backRound = new BackRound();
+            this.Controls.Add(backRound);
         }
 
         private void AddSpaceshipOneToGame()
@@ -130,38 +138,32 @@ namespace SpaceInvaders2020
         {
             foreach (var bullet in spaceshipOne.bullets)
             {
-                foreach (Control enemy in this.Controls)
-                {
-                    if (enemy is PictureBox && (string)enemy.Tag == "Enemy")
+                foreach (var enemy in enemies)
+                {                    
+                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        if (bullet.Bounds.IntersectsWith(enemy.Bounds))
-                        {
-                            enemy.Dispose();
-                            this.Controls.Remove(bullet);
-                            bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
-                            bullet.Top = 0; //temporary solution 
-                            playHand();
-                            KillCounter();
-                        }
-                    }
+                        enemy.Explode();
+                        this.Controls.Remove(bullet);
+                        bullet.Dispose();                                               
+                        bullet.Top = 0;
+                        playHand();
+                        KillCounter();
+                    }                    
                 }
             }
 
             foreach (var bullet in spaceshipTow.bullets)
             {
-                foreach (Control enemy in this.Controls)
+                foreach (var enemy in enemies)
                 {
-                    if (enemy is PictureBox && (string)enemy.Tag == "Enemy")
+                    if (bullet.Bounds.IntersectsWith(enemy.Bounds))
                     {
-                        if (bullet.Bounds.IntersectsWith(enemy.Bounds))
-                        {
-                            enemy.Dispose();
-                            this.Controls.Remove(bullet);
-                            bullet.Dispose(); //Deletes the bullet on colisione with enemy                                                
-                            bullet.Top = 0; //temporary solution 
-                            playHand();
-                            KillCounter();
-                        }
+                        enemy.Explode();
+                        this.Controls.Remove(bullet);
+                        bullet.Dispose();                                              
+                        bullet.Top = 0;
+                        playHand();
+                        KillCounter();
                     }
                 }
             }

@@ -38,13 +38,13 @@ namespace SpaceInvaders2020
         public void Explode()
         {
             this.BackColor = Color.Transparent;
-                InitializeTimerAnimateExpolosion();  
+            InitializeTimerAnimateExpolosion();  
         }
 
         private void InitializeTimerAnimateExpolosion()
         {
             timerAnimateExplosion = new Timer();
-            timerAnimateExplosion.Interval = 50;
+            timerAnimateExplosion.Interval = 16;
             timerAnimateExplosion.Tick += TimerAnimateExplosion_Tick;
             timerAnimateExplosion.Start();
         }
@@ -64,7 +64,7 @@ namespace SpaceInvaders2020
                 imageExplosionCount = 0;
                 timerAnimateExplosion.Stop();
                 timerAnimateExplosion.Dispose();
-                this.Top = 0;
+                this.Top = -1000000000;
                 game.Controls.Remove(this);
                 this.Dispose();
             }
