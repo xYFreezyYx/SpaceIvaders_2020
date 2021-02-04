@@ -55,7 +55,10 @@ namespace SpaceInvaders2020
             string imageName = "Space_" + imageSpaceBackRoundCounter.ToString("000");
             this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
             imageSpaceBackRoundCounter++;
-            if (imageSpaceBackRoundCounter > 6) imageSpaceBackRoundCounter = 0;
+            if (imageSpaceBackRoundCounter > 6) 
+            {
+                imageSpaceBackRoundCounter = 0;
+            } 
         }
     }
 }

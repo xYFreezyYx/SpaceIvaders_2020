@@ -223,6 +223,23 @@
     <None Include="Resources\Space_006.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lazer.png" />
+    <None Include="Resources\P2_rocket_off_000.png" />
+    <None Include="Resources\P1_rocket_on_003.png" />
+    <None Include="Resources\P1_rocket_on_002.png" />
+    <None Include="Resources\P1_rocket_on_001.png" />
+    <None Include="Resources\P1_rocket_on_000.png" />
+    <None Include="Resources\P1_rocket_off_003.png" />
+    <None Include="Resources\P1_rocket_off_002.png" />
+    <None Include="Resources\P1_rocket_off_000.png" />
+    <None Include="Resources\P2_rocket_on_003.png" />
+    <None Include="Resources\P2_rocket_on_002.png" />
+    <None Include="Resources\P2_rocket_on_001.png" />
+    <None Include="Resources\P2_rocket_on_000.png" />
+    <None Include="Resources\P2_rocket_off_003.png" />
+    <None Include="Resources\P2_rocket_off_001.png" />
+    <None Include="Resources\P1_rocket_off_001.png" />
+    <None Include="Resources\P2_rocket_off_002.png" />
     <Content Include="Sonya-Swarm-Space-Shuttle.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

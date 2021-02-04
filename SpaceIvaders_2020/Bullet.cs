@@ -21,13 +21,13 @@ namespace SpaceInvaders2020
             InitializeTimerMove();
         }
         public void InitializeBullet()
-        {
+        {           
             this.Height = 20;
             this.Width = 6;
             this.BackColor = Color.Transparent;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string pictureName = "Bullet";
+            string pictureName = "lazer";
             this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 

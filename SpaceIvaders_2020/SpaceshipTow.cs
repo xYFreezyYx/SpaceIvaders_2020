@@ -40,7 +40,7 @@ namespace SpaceInvaders2020
             this.BackColor = Color.Transparent;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            string pictureName = "rocket_off_000";
+            string pictureName = "P2_rocket_off_000";
             this.Image = (Image)Resources.ResourceManager.GetObject(pictureName);
         }
 
@@ -54,6 +54,7 @@ namespace SpaceInvaders2020
             game.Controls.Add(bullet);
             bullets.Add(bullet);
             canFire = false;
+            bullet.BringToFront();
             InitializeTimerCooldown();
         }
 
@@ -96,7 +97,7 @@ namespace SpaceInvaders2020
                 this.HorVelocity = -this.HorVelocity;
             }
 
-            if (this.Right <= 0)
+            if (this.Right <= 10)
             {
                 this.HorVelocity = -this.HorVelocity;
             }
@@ -139,14 +140,14 @@ namespace SpaceInvaders2020
         {
             if (HorVelocity == 2 || HorVelocity == -2)
             {
-                string imageName = "rocket_on_" + imageCount.ToString("000");
+                string imageName = "P2_rocket_on_" + imageCount.ToString("000");
                 this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
                 imageCount++;
                 if (imageCount > 3) imageCount = 0;
             }
             else
             {
-                string imageName = "rocket_off_" + imageCount.ToString("000");
+                string imageName = "P2_rocket_off_" + imageCount.ToString("000");
                 this.Image = (Image)Resources.ResourceManager.GetObject(imageName);
                 imageCount++;
                 if (imageCount > 3) imageCount = 0;

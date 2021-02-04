@@ -118,10 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spaceship_bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enemy_spaceship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enemy spaceship c# .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exp000" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -192,6 +189,57 @@
   </data>
   <data name="exp022" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exp022.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lazer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lazer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_off_000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_off_000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_off_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_off_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_off_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_off_002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_off_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_off_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_on_000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_on_000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_on_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_on_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_on_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_on_002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_rocket_on_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_rocket_on_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_off_000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_off_000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_off_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_off_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_off_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_off_002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_off_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_off_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_on_000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_on_000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_on_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_on_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_on_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_on_002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_rocket_on_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_rocket_on_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rocket_off_000" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rocket_off_000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

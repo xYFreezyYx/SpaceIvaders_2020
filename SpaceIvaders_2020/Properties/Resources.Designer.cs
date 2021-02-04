@@ -63,19 +63,9 @@ namespace SpaceIvaders_2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bullet {
+        internal static System.Drawing.Bitmap enemy {
             get {
-                object obj = ResourceManager.GetObject("Bullet", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap enemy_spaceship {
-            get {
-                object obj = ResourceManager.GetObject("enemy_spaceship", resourceCulture);
+                object obj = ResourceManager.GetObject("enemy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +296,176 @@ namespace SpaceIvaders_2020.Properties {
         internal static System.Drawing.Bitmap exp022 {
             get {
                 object obj = ResourceManager.GetObject("exp022", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lazer {
+            get {
+                object obj = ResourceManager.GetObject("lazer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_off_000 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_off_000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_off_001 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_off_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_off_002 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_off_002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_off_003 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_off_003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_on_000 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_on_000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_on_001 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_on_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_on_002 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_on_002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P1_rocket_on_003 {
+            get {
+                object obj = ResourceManager.GetObject("P1_rocket_on_003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_off_000 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_off_000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_off_001 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_off_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_off_002 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_off_002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_off_003 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_off_003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_on_000 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_on_000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_on_001 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_on_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_on_002 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_on_002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap P2_rocket_on_003 {
+            get {
+                object obj = ResourceManager.GetObject("P2_rocket_on_003", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

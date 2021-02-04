@@ -40,30 +40,24 @@ namespace SpaceInvaders2020
             LifeCounterLable();
             KillLable();
             AddEnemyToGame(4, 13);
-            AddBacRound();
-        }
-
-        private void AddBacRound()
-        {
-            backRound = new BackRound();
-            this.Controls.Add(backRound);
-        }
+            AddBackRound();
+        }      
 
         private void AddSpaceshipOneToGame()
         {
             spaceshipOne = new SpaceshipOne(this);
-            spaceshipOne.FireCooldown = 700;
+            spaceshipOne.FireCooldown = 1000;
             this.Controls.Add(spaceshipOne);
-            spaceshipOne.Left = 293;
+            spaceshipOne.Left = 0;
             spaceshipOne.Top = ClientRectangle.Height - spaceshipOne.Height; 
         }
 
         private void AddSpaceshipTowToGame()
         {
             spaceshipTow = new SpaceshipTow(this);
-            spaceshipTow.FireCooldown = 700;
+            spaceshipTow.FireCooldown = 1000;
             this.Controls.Add(spaceshipTow);
-            spaceshipTow.Left = 413;
+            spaceshipTow.Left = 740;
             spaceshipTow.Top = ClientRectangle.Height - spaceshipTow.Height;
         }
 
@@ -82,6 +76,12 @@ namespace SpaceInvaders2020
                     enemies.Add(enemy);                    
                 }
             }
+        }
+
+        private void AddBackRound()
+        {
+            backRound = new BackRound();
+            this.Controls.Add(backRound);
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
@@ -208,7 +208,7 @@ namespace SpaceInvaders2020
             Label Life = null;
             Life = new Label();
             Life.Text = "Life";
-            Life.BackColor = Color.Black;
+            Life.BackColor = Color.Transparent;
             Life.ForeColor = Color.White;
             Life.BorderStyle = BorderStyle.None;
             Life.TextAlign = ContentAlignment.MiddleCenter;
@@ -223,7 +223,7 @@ namespace SpaceInvaders2020
         {
             life = new Label();
             life.Text = "3";
-            life.BackColor = Color.Black;
+            life.BackColor = Color.Transparent;
             life.ForeColor = Color.White;
             life.BorderStyle = BorderStyle.None;
             life.TextAlign = ContentAlignment.MiddleCenter;
@@ -234,7 +234,7 @@ namespace SpaceInvaders2020
             this.Controls.Add(life);
         }
 
-        private void LifeCounter() //Not working (disabled it for now) (this is for when I make so enemy shoot at rondam at the ship from a rondom enemy)
+        private void LifeCounter() //Not working (disabled it for now) (this is for when I make so enemy shoot at rondam at the spaceship from a rondom enemy)
         {
             lifeCounter--;
             if (lifeCounter < 3) lifeCounter = 0;
@@ -247,7 +247,7 @@ namespace SpaceInvaders2020
             Label Kills = null;
             Kills = new Label();
             Kills.Text = "Kills";
-            Kills.BackColor = Color.Black;
+            Kills.BackColor = Color.Transparent;
             Kills.ForeColor = Color.White;
             Kills.BorderStyle = BorderStyle.None;
             Kills.TextAlign = ContentAlignment.MiddleCenter;
@@ -262,7 +262,7 @@ namespace SpaceInvaders2020
         {            
             kills = new Label();
             kills.Text = "0";
-            kills.BackColor = Color.Black;
+            kills.BackColor = Color.Transparent;
             kills.ForeColor = Color.White;
             kills.BorderStyle = BorderStyle.None;
             kills.TextAlign = ContentAlignment.MiddleCenter;
@@ -271,6 +271,6 @@ namespace SpaceInvaders2020
             kills.Height = 50;
             kills.Location = new Point(775, 155);
             this.Controls.Add(kills);
-        }
+        }        
     }
 }
